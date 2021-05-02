@@ -1,3 +1,17 @@
+## About
+
+This is a project where I will try to implement a system to control RPG games
+
+Utilities:
+1. Login and profile data association
+2. Creating worlds
+3. Participate in the world
+4. Managing the world, whether as a master (owner) or player (participants)
+5. Friends 
+
+
+## info
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
