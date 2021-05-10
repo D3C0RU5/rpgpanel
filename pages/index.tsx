@@ -1,22 +1,21 @@
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { NextPage } from 'next';
+import React from 'react'
+import Nav from '../components/nav'
 
-export default function Home() {
-  const [session, loading] = useSession()
 
+const ProfilePage: NextPage = () => {
   return (
     <>
-      {!session && (
-        <>
-          Not signed in <br />
-          <button onClick={() => signIn('auth0')}>Sign in</button>
-        </>
-      )}
-      {session && (
-        <>
-          Signed in as {session.user.email} <br />
-          <button className="btn-blue" onClick={() => signOut()}>Sign out</button>
-        </>
-      )}
+    <Nav/>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            Página inicial
+          </div>
+        </div>
+      </div>
     </>
   )
 }
+
+export default ProfilePage;

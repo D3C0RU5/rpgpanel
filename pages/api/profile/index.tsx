@@ -1,5 +1,6 @@
 import connect from '../../../utils/database'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { ObjectID } from 'bson'
 
 interface ErrorResponseType {
   error: string
@@ -15,9 +16,21 @@ export default async (
   res: NextApiResponse<SuccessResponseType | ErrorResponseType>
 ) => {
   if (req.method === 'POST') {
-    const { name, email }: { name: string; email: string } = req.body
+    const {
+      name,
+      email,
+      apelido,
+      image,
+      _id
+    }: {
+      name: string
+      email: string
+      apelido: string
+      image: string
+      _id: string
+    } = req.body
 
-    if (!name || !email) {
+    if (!email) {
       res.status(400).json({ error: 'Missing body parameter' })
       return
     }
@@ -30,12 +43,15 @@ export default async (
 
     if (emailAlreadyExists) {
       res.status(400).json({ error: `E-mail ${email} already exists` })
-      return;
+      return
     }
 
     const response = await db.collection('users').insertOne({
-      name: name,
-      email: email
+      name,
+      email,
+      apelido,
+      image,
+      _id: new ObjectID(_id)
     })
 
     res.status(200).json(response.ops[0])
