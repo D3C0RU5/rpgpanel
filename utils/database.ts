@@ -1,19 +1,19 @@
 import { MongoClient, Db } from 'mongodb'
 
 interface ConnectType {
-    db: Db;
-    client: MongoClient;
+  db: Db
+  client: MongoClient
 }
 
-const client = new MongoClient(process.env.DATABASE_URL,{
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
-});
+const client = new MongoClient(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
 
 export default async function connect(): Promise<ConnectType> {
-    if(!client.isConnected()) await client.connect();
+  if (!client.isConnected()) await client.connect()
 
-    const db = client.db('rpgpanel');
+  const db = client.db('rpgpanel')
 
-    return {db, client};
+  return { db, client }
 }
