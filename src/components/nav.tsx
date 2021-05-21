@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useUserContext } from '../contexts/SessionUserContext'
 
-import styles from '../styles/components/nav.module.css'
+import styles from '../../styles/components/nav.module.css'
 
 const Nav: NextComponentType = () => {
   const { profile } = useUserContext()

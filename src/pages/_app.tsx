@@ -1,7 +1,7 @@
 import { Provider } from 'next-auth/client'
 import { AppProps } from 'next/app'
 import { UserContextProvider } from '../contexts/SessionUserContext'
-import '../styles/globals.css'
+import '../../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (

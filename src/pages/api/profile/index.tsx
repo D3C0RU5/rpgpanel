@@ -1,4 +1,4 @@
-import connect from '../../../utils/database'
+import connect from '../../../../utils/database'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { ObjectID } from 'bson'
 

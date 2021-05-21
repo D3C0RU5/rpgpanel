@@ -1,5 +1,5 @@
 import { useSession } from 'next-auth/client'
-import api from '../utils/api'
+import api from '../../utils/api'
 import { createContext, useState, useContext, useEffect } from 'react'
 import useSWR from 'swr'
 import { ObjectID } from 'bson'
@@ -19,7 +19,7 @@ interface UserContextData {
 
 const UserContext = createContext({} as UserContextData)
 
-export function UserContextProvider({ children, props }) {
+export function UserContextProvider({ children }) {
   const [session, loading] = useSession()
   const [profile, setProfile] = useState({} as ProfileContextData)
 
@@ -74,6 +74,7 @@ export function useUserContext() {
   const context = useContext(UserContext)
   return context
 }
+/*
 
 export async function getStaticProps() {
   return {
@@ -82,3 +83,4 @@ export async function getStaticProps() {
     },
   };
 }
+*/
