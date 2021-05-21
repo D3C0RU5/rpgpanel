@@ -50,7 +50,7 @@ export default function Home() {
               {!session?.user && <>Not signed in</>}
               {session?.user && (
                 <>
-                  Signed in as {session.user.email}
+                  Signed in as{session.user.email}
                   <hr />
                   <p>{profile._id}</p>
                   <p>{session.user.email}</p>
